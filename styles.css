@@ -1,0 +1,64 @@
+ @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+:root {
+  --basecolor: pink;
+  --border: 5px;
+  --grayscale: 0%;
+}
+
+body {
+  background: white;
+  color:gray;
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.controls {
+display: flex;
+flex-direction: column;
+text-align: left;
+/* border: 1px solid red; */
+}
+input{
+  width: 100%;
+}
+img{
+    width: auto;
+    height: 90%;
+    margin: 0 auto;
+    border: var(--border) solid var(--basecolor);
+    background: var(--basecolor);
+    filter: grayscale(var(--grayscale));
+  }
+
+  #edit{
+      display: flex;
+      /* border: 1px solid red; */
+      margin: 0 8rem;
+  }
+  form{
+      width: 400px;
+      margin: 1rem auto 2rem;
+      display: flex;
+  }
+  button{
+      margin: 0 1rem;
+      border-radius: 5px;
+      border: 0;
+      color: white;
+      background: gray;
+      padding: 0 1rem;
+  }
+  #imageEntry{
+      height: 25px;
+      border-radius: 5px;
+      border: 0.25px solid lightgray;
+      padding: 0.25rem;
+      text-align: center;
+      color: var(--basecolor);
+  }
+  p{
+      margin:0.2rem 0;
+  }
+  .colorify{
+      color: var(--basecolor);
+  }

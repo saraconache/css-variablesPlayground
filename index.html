@@ -2,54 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Modifying CSS Variables</title>
+  <title>Image Editor</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h2>Check out my <span class='hl'>CSS3 VARIABLES</span> yo!</h2>
+  <h1>CSS variables || <span class="colorify">Image Editor</span></h1>
+<form>
+    <input type="text" placeholder="Insert Image URL here" id="imageEntry">
+    <button id="editButton">Edit</button>
+</form>
 
+<div id="edit">
   <div class="controls">
-    <label for="border">Border:</label>
-    <input id="border" type="range" name="border" data-unit="px" min="2" max="50" value="10">
-
-    <label for="grayscale">Grayscale Filter:</label>
-    <input id="grayscale" type="range" name="grayscale" data-unit="%" min="0" max="100" value="10" >
-
-    <label for="basecolor">Color</label>
-    <input id="basecolor" type="color" name="basecolor" value="#ffc600">
+      <p>
+          <label for="blur">Blur:</label>
+          <input id="blur" type="range" name="blur" data-unit="px" min="0" max="100" value="10" >
+      </p>
+      <p>
+          <label for="contrast">Contrast:</label>
+          <input id="contrast" type="range" name="contrast" data-unit="%" min="0" max="100" value="10" >
+      </p>
+      <p>
+          <label for="exposure">Exposure:</label>
+          <input id="exposure" type="range" name="exposure" data-unit="%" min="0" max="100" value="10" >
+      </p>
+      <p>
+        <label for="grayscale">Grayscale:</label>
+        <input id="grayscale" type="range" name="grayscale" data-unit="%" min="0" max="100" value="10" >
+      </p>
+      <p>
+          <label for="hue">Hue:</label>
+          <input id="hue" type="range" name="hue" data-unit="deg" min="0" max="100" value="10" >
+      </p>
+      <p>
+          <label for="invert">Invert:</label>
+          <input id="invert" type="range" name="invert" data-unit="%" min="0" max="100" value="10" >
+      </p>
+      <p>
+          <label for="saturate">Saturate:</label>
+          <input id="saturate" type="range" name="saturate" data-unit="%" min="0" max="100" value="10" >
+      </p>
+      <p>
+          <label for="sepia">Sepia:</label>
+          <input id="sepia" type="range" name="sepia" data-unit="%" min="0" max="100" value="10" >
+      </p>
+      <p>
+        <label for="border">Border:</label>
+        <input id="border" type="range" name="border" data-unit="px" min="0" max="50" value="10">
+      </p>
+      <p>
+        <label for="basecolor">Border Color</label>
+        <input id="basecolor" type="color" name="basecolor" value="#ffc600">
+      </p>
   </div>
 
   <img src="https://picsum.photos/500/300">
-
-  <style>
- @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-
-:root {
-  --basecolor: pink;
-  --border: 5px;
-  --grayscale: 0%;
-}
-img{
-  border: var(--border) solid var(--basecolor);
-  background: var(--basecolor);
-  filter: grayscale(var(--grayscale));
-}
-.hl{
-  color: var(--basecolor);
-}
-
-  body {
-    background: white;
-    color:gray;
-    text-align: center;
-    font-family: 'Roboto Condensed', sans-serif;
-  }
-  .controls {
-    margin-bottom: 50px;
-  }
-  input {
-    width: 100px;
-  }
-  </style>
+</div>
 
   <script>
 // create nodelist for inputs
