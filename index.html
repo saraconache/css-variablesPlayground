@@ -9,7 +9,7 @@
   <h1><span class="colorify">Image Visualizr</span> for CSS filter</h1>
 <form>
     <input type="text" placeholder="Insert Image URL here" id="imageEntry">
-    <button id="editButton">Edit</button>
+    <button id="editB">Edit</button>
 </form>
 
 <div id="edit">
@@ -57,13 +57,19 @@
 </div>
 
   <script>
+// button listener
+editB.addEventListener("click", function(e){
+  e.preventDefault();
+  var newImg = imageEntry.value;
+  document.getElementsByTagName('img')[0].src= newImg;
+});
+
 // create nodelist for inputs
     const inputs = document.querySelectorAll('.controls input');
     const labels = document.querySelectorAll('.controls label');
 
-//adding span with value
+// create spans inside labels with id of filterValue
     for(var i =0; i<labels.length;i++){
-//  console.log(this.value);
     var span = document.createElement("span");
     labels[i].appendChild(span);
     span.setAttribute("id", inputs[i].id + "Value");
@@ -73,20 +79,19 @@
     function updateCSS(){
       const unit= this.dataset.unit || '';
       // actual css replacing:
-     document.documentElement.style.setProperty(`--${this.name}`,this.value + unit);
-     
-    for(var i=0; i<labels.length;i++){
-      var eachSpans = document.querySelectorAll('span');
-        if(this.id + "Value" == eachSpans[i].id){
-          eachSpans[i].innerHTML = this.value + this.dataset.unit;
-        }
-}
+      document.documentElement.style.setProperty(`--${this.name}`,this.value + unit);
+
+      for(var i=0; i<labels.length;i++){
+        var eachSpans = document.querySelectorAll('span');
+          if(this.id + "Value" == eachSpans[i].id){
+            eachSpans[i].innerHTML = this.value + this.dataset.unit;
+          }
+      }
     }
 
 // listen for mousemove and change
     inputs.forEach(input => input.addEventListener('change', updateCSS));
     inputs.forEach(input => input.addEventListener('input', updateCSS));
-
 
   </script>
 
