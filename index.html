@@ -5,32 +5,33 @@
   <title>Modifying CSS Variables</title>
 </head>
 <body>
-  <h2>Check out my <span class='hl'>variables</span></h2>
+  <h2>Check out my <span class='hl'>CSS3 VARIABLES</span> yo!</h2>
 
   <div class="controls">
-    <label for="spacing">Spacing:</label>
-    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+    <label for="border">Border:</label>
+    <input id="border" type="range" name="border" min="10" max="200" value="10" data-sizing="px">
 
-    <label for="blur">Blur:</label>
-    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    <label for="grayscale">Grayscale Filter:</label>
+    <input id="grayscale" type="range" name="grayscale" min="0" max="25" value="10" data-sizing="px">
 
-    <label for="base">Base Color</label>
-    <input id="base" type="color" name="base" value="#ffc600">
+    <label for="basecolor">Color</label>
+    <input id="basecolor" type="color" name="basecolor" value="#ffc600">
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+  <img src="https://picsum.photos/500/300">
 
   <style>
  @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
 :root {
-  --base: #ffc600;
-  --spacing: 10px;
-  --blur: 10px;
+  --base: pink;
+  --border: 20px;
+  --grayscale: 50%;
 }
 img{
-  padding: var(--spacing);
+  border: var(--border) solid var(--base);
   background: var(--base);
-  filter: blur(var(--blur));
+  filter: grayscale(var(--grayscale));
 }
 .hl{
   color: var(--base);
