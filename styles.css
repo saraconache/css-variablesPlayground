@@ -3,7 +3,13 @@
 :root {
   --basecolor: pink;
   --border: 5px;
+  --blur: 0%;
+  --contrast: 100%;
   --grayscale: 0%;
+  --hue-rotate: 0;
+  --invert:0%;
+  --saturate: 0%;
+  --sepia: 0%;
 }
 
 body {
@@ -27,7 +33,7 @@ img{
     margin: 0 auto;
     border: var(--border) solid var(--basecolor);
     background: var(--basecolor);
-    filter: grayscale(var(--grayscale));
+    filter: grayscale(var(--grayscale)) blur(var(--blur)) contrast(var(--contrast)) hue-rotate(var(--hue-rotate)) saturate(var(--saturate)) sepia(var(--sepia)) invert(var(--invert));
   }
 
   #edit{
