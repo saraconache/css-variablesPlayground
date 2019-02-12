@@ -9,10 +9,10 @@
 
   <div class="controls">
     <label for="border">Border:</label>
-    <input id="border" type="range" name="border" min="10" max="200" value="10" data-sizing="px">
+    <input id="border" type="range" name="border" data-unit="px" min="2" max="50" value="10">
 
     <label for="grayscale">Grayscale Filter:</label>
-    <input id="grayscale" type="range" name="grayscale" min="0" max="25" value="10" data-sizing="px">
+    <input id="grayscale" type="range" name="grayscale" data-unit="%" min="0" max="100" value="10" >
 
     <label for="basecolor">Color</label>
     <input id="basecolor" type="color" name="basecolor" value="#ffc600">
@@ -24,17 +24,17 @@
  @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
 :root {
-  --base: pink;
-  --border: 20px;
-  --grayscale: 50%;
+  --basecolor: pink;
+  --border: 5px;
+  --grayscale: 0%;
 }
 img{
-  border: var(--border) solid var(--base);
-  background: var(--base);
+  border: var(--border) solid var(--basecolor);
+  background: var(--basecolor);
   filter: grayscale(var(--grayscale));
 }
 .hl{
-  color: var(--base);
+  color: var(--basecolor);
 }
 
   body {
@@ -52,6 +52,23 @@ img{
   </style>
 
   <script>
+// create nodelist for inputs
+    const inputs = document.querySelectorAll('.controls input');
+
+// updating css yay!
+    function updateCSS(){
+      const unit= this.dataset.unit || '';
+      console.log(this.value);
+
+      // actual css replacing:
+     document.documentElement.style.setProperty(`--${this.name}`,this.value + unit);
+    }
+
+// listen for mousemove and change
+    inputs.forEach(input => input.addEventListener('change', updateCSS));
+    inputs.forEach(input => input.addEventListener('mousemove', updateCSS));
+
+
   </script>
 
 </body>
